@@ -18,6 +18,7 @@ class ProductSerializer(serializers.ModelSerializer):
                                             )
 
     def validate_category(self, category):
+        """Проверка что добавленно категорий от 2 до 10"""
         if len(category) < 2 or len(category) > 10:
             raise ValidationError(
                 'Товар должен иметь от 2 до 10 категорий!')
